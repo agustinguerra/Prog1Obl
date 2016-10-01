@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package obligatorio;  //PRUEBA PARA VER SI SUBE LOS CAMBIOS
+package obligatorio;  
 
 /**
  *

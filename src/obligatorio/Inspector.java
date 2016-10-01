@@ -12,6 +12,37 @@ package obligatorio;
 public class Inspector {
     private String nombre;
     private int edad;
-    private int cedula;
+    private String cedula;
     
+    public void errorDatos(){
+        System.out.println("Los datos que usted ingreso no son correctos.");
+    }
+    
+    public void setNombre(String nomb){
+        this.nombre=nomb;
+    }
+    public void setEdad(int anios){
+        this.edad=anios;
+    }
+    public void setCedula(String ced){
+        this.cedula=ced;
+    }
+    public String getNombre(){
+        return this.nombre;
+    }
+    public int getEdad(){
+        return this.edad;
+    }
+    public String getCedula(){
+        return this.cedula;
+    }
+    public void corroborarDatosCedula(String ced){
+        if (ced.matches("[0-9]+") && (ced.length()==8)){
+            setCedula(ced);
+        }
+        else
+        {
+            errorDatos();
+        }
+    }
 }

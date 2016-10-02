@@ -36,8 +36,8 @@ public class Inspector {
     public String getCedula(){
         return this.cedula;
     }
-    public void corroborarDatosCedula(String ced){
-        if (ced.matches("[0-9]+") && (ced.length()==8)){
+    public void corroborarDatosCedula(String ced){                //Metodo para corroborar que la cedula ingresada tenga el formato y largo correcto
+        if (ced.matches("[0-9]+") && ((ced.length()==8)||(ced.length()==7))){
             setCedula(ced);
         }
         else
@@ -45,4 +45,8 @@ public class Inspector {
             errorDatos();
         }
     }
+    public Inspector(){
+        
+    }
+    
 }

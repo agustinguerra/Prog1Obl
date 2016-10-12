@@ -6,10 +6,34 @@ public class Actividad {
     private int seccion;
     private String descripcion;
     private int duracion;
-    private int tipoDeRiesgo;
+    private int tipoDeRiesgoPrincipal;
+    private int tipoDeRiesgoSecundario;
 
     public int getSeccion() {
         return seccion;
+    }
+
+    public String getTipoDeRiesgoSecundario() {
+        String tipoRiesgoSecundario = null;
+        switch (this.tipoDeRiesgoSecundario) {
+            case 1:
+                tipoRiesgoSecundario="Riesgo fisico";
+                break;
+            case 2:
+                tipoRiesgoSecundario="Riesgo quimico";
+                break;
+            case 3:
+                tipoRiesgoSecundario="Riesgo biologico";
+                break;
+            case 4:
+                tipoRiesgoSecundario="Riesgo sicosocial";
+                break;
+        }
+        return tipoRiesgoSecundario;
+    }
+
+    public void setTipoDeRiesgoSecundario(int tipoDeRiesgoSecundario) {
+        this.tipoDeRiesgoSecundario = tipoDeRiesgoSecundario;
     }
 
     public void setSeccion(int seccion) {
@@ -32,27 +56,27 @@ public class Actividad {
         this.duracion = duracion;
     }
 
-    public String getTipoDeRiesgo() {
-        String tipoRiesgo = null;
-        switch (this.tipoDeRiesgo) {
+    public String getTipoDeRiesgoPrincipal() {
+        String tipoRiesgoPrincipal = null;
+        switch (this.tipoDeRiesgoPrincipal) {
             case 1:
-                tipoRiesgo="Riesgo fisico";
+                tipoRiesgoPrincipal="Riesgo fisico";
                 break;
             case 2:
-                tipoRiesgo="Riesgo quimico";
+                tipoRiesgoPrincipal="Riesgo quimico";
                 break;
             case 3:
-                tipoRiesgo="Riesgo biologico";
+                tipoRiesgoPrincipal="Riesgo biologico";
                 break;
             case 4:
-                tipoRiesgo="Riesgo sicosocial";
+                tipoRiesgoPrincipal="Riesgo sicosocial";
                 break;
         }
-        return tipoRiesgo;
+        return tipoRiesgoPrincipal;
     }
 
-    public void setTipoDeRiesgo(int tipoDeRiesgo) {
-        this.tipoDeRiesgo = tipoDeRiesgo;
+    public void setTipoDeRiesgoPrincipal(int tipoDeRiesgo) {
+        this.tipoDeRiesgoPrincipal = tipoDeRiesgo;
     }
 
     public Actividad() {

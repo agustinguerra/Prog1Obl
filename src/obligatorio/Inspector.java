@@ -1,8 +1,6 @@
 
 package obligatorio; 
 
-import java.util.Scanner;
-
 
 public class Inspector {
     private String nombre;
@@ -17,26 +15,11 @@ public class Inspector {
     public void setEdad(int anios){
         this.edad=anios;
     }
-    public void setCedula(){
-        boolean bandera=false;
-        Scanner in= new Scanner(System.in);
-        System.out.println("Por favor ingrese la cedula del inspector.");
-        System.out.println("");
-        while(!bandera){
-            String ced=in.nextLine();
-            if (ced.matches("[0-9]+") && ((ced.length()==8)||(ced.length()==7))){
-                this.cedula=ced;
-                bandera=true;
-            }
-            else
-            {
-                System.out.println("Los datos que usted ingreso no son correctos.");
-                System.out.println("");
-                System.out.println("Ingreselos de nuevo.");
-                System.out.println("");
-            }
-        }
+    
+    public void setCedula(String ced){
+        this.cedula=ced;
     }
+    
     public String getNombre(){
         return this.nombre;
     }

@@ -1,6 +1,8 @@
 
 package obligatorio; 
 
+import java.io.IOException;
+
 
 public class Inspeccion {
     private Inspector inspec;
@@ -65,15 +67,18 @@ public class Inspeccion {
 
 
 
-    public void setResultado(String resultado) {
-        if (resultado.equals("Aprobada")){
-            this.resultado = true;
-        }
-        else if (resultado.equals("Rechazada")){
-            this.resultado = false;
-        }
-        else{
-            System.out.println("No fue ingresada la palabra Aprobada o Rechazada.");
+    public void setResultado(String resultado) throws IOException {
+        switch (resultado) {
+            case "Aprobada":
+                this.resultado = true;
+                break;
+            case "Rechazada":
+                this.resultado = false;
+                break;
+            default:
+                IOException e = new IOException();
+                throw e;
+                
         }
     }
     

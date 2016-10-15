@@ -141,6 +141,44 @@ public class Prueba {
             activ.setDuracion(duracion);
         }        
     }
+
+    public static String RiesgoPrincipalAString(Actividad activ){
+        String tipoRiesgoPrincipal = null;
+        switch (activ.getTipoDeRiesgoSecundario()) {
+            case 1:
+                tipoRiesgoPrincipal="Riesgo fisico";
+                break;
+            case 2:
+                tipoRiesgoPrincipal="Riesgo quimico";
+                break;
+            case 3:
+                tipoRiesgoPrincipal="Riesgo biologico";
+                break;
+            case 4:
+                tipoRiesgoPrincipal="Riesgo sicosocial";
+                break;
+        }
+        return tipoRiesgoPrincipal;    
+    }    
+    
+    public static String RiesgoSecundarioAString(Actividad activ){
+        String tipoRiesgoSecundario = null;
+        switch (activ.getTipoDeRiesgoSecundario()) {
+            case 1:
+                tipoRiesgoSecundario="Riesgo fisico";
+                break;
+            case 2:
+                tipoRiesgoSecundario="Riesgo quimico";
+                break;
+            case 3:
+                tipoRiesgoSecundario="Riesgo biologico";
+                break;
+            case 4:
+                tipoRiesgoSecundario="Riesgo sicosocial";
+                break;
+        }
+        return tipoRiesgoSecundario;    
+    }
     
     public static void setTipoDeRiesgoPrincipal(Actividad activ){
         Scanner in = new Scanner (System.in);        
@@ -153,7 +191,9 @@ public class Prueba {
                 System.out.println("Por favor ingrese el numero correspondiente al tipo de riesgo principal de la actividad.");
                 riesgo=in.nextInt();
                 if (0<riesgo && riesgo<5){
-                    bandera=true;
+                    if (riesgo!=activ.getTipoDeRiesgoSecundario()){
+                        bandera=true;
+                    }    
                 }
                 else{
                     InputMismatchException exception = new InputMismatchException();
@@ -162,7 +202,7 @@ public class Prueba {
             }
             catch(InputMismatchException exception)
             {
-                System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                System.out.println("El dato ingresado no corresponde el tipo correcto,no esta en el intervalo correcto o el riesgo secundario coincide.");
                 bandera=false;
             }
             activ.setTipoDeRiesgoPrincipal(riesgo);
@@ -180,7 +220,9 @@ public class Prueba {
                 System.out.println("Por favor ingrese el numero correspondiente al tipo de riesgo secundario de la actividad.");
                 riesgo=in.nextInt();
                 if (0<riesgo && riesgo<5){
-                    bandera=true;
+                    if (riesgo!=activ.getTipoDeRiesgoPrincipal()){
+                        bandera=true;
+                    }   
                 }
                 else{
                     InputMismatchException exception = new InputMismatchException();
@@ -195,6 +237,79 @@ public class Prueba {
             activ.setTipoDeRiesgoSecundario(riesgo);
         }                  
     }  
+
+    public static void setHoraInspeccion(Inspeccion inspec){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        int hora=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese las horas de la inspeccion.");
+                hora=in.nextInt();
+                if(hora>=0){
+                    bandera=true;
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("El dato ingresado no corresponde el tipo correcto.");
+                bandera=false;
+            }
+            inspec.setHoras(hora);
+        }        
+    }
+
+    public static void setDiaInspeccion(Inspeccion inspec){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        int dia=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese el dia de la inspeccion.");
+                dia=in.nextInt();
+                if(dia>0 && dia<31){
+                    bandera=true;
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                bandera=false;
+            }
+            inspec.setDia(dia);
+        }        
+    }
+
+    public static void setMesInspeccion(Inspeccion inspec){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        int mes=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese el mes de la inspeccion.");
+                mes=in.nextInt();
+                if(mes>0 && mes<13){
+                    bandera=true;
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                bandera=false;
+            }
+            inspec.setMes(mes);
+        }        
+    }    
+
+    public static void setComentarios(Inspeccion inspec){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Por favor ingrese los comentarios de la inspeccion.");
+        String coment = in.nextLine();
+        inspec.setComentarios(coment);
+    }
     
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenido al sistema de control de procesos.");
@@ -224,6 +339,31 @@ public class Prueba {
         setDuracionActividad(actividadDos);
         setTipoDeRiesgoPrincipal(actividadDos);
         setTipoDeRiesgoSecundario(actividadDos);
+        
+        
+        
+        //SE CREAN LAS DOS INSPECCIONES, ESTA PARTE VA DENTRO DE LA OPCION  CREAR INSPECCIONES EN EL MENU, SEGUN DICE LA LETRA.
+        //ESTA SECUENCIA NO ES GENERICA, SOLO SIRVE PARA LA CREACION DE LAS PRIMERAS DOS INSPEECIONES.
+        //TRATO DE HACERLA LO MAS GENERICA POSIBLE.
+        Inspeccion inspeccionUno;
+        Inspeccion inspeccionDos;
+        inspeccionUno = new Inspeccion();
+        inspeccionDos = new Inspeccion();
+        inspeccionUno.setInspector(inspectorUno);
+        inspeccionDos.setInspector(inspectorUno);
+        inspeccionUno.setActividad(actividadUno);
+        inspeccionDos.setActividad(actividadDos);
+        System.out.println("Inspeccion Uno.");
+        setHoraInspeccion(inspeccionUno);
+        setDiaInspeccion(inspeccionUno);
+        setMesInspeccion(inspeccionUno);
+        setComentarios(inspeccionUno);
+        
+        System.out.println("Inspeccion Dos");
+        setHoraInspeccion(inspeccionDos);
+        setDiaInspeccion(inspeccionDos);
+        setMesInspeccion(inspeccionDos);
+        setComentarios(inspeccionDos);
     }
     
 }

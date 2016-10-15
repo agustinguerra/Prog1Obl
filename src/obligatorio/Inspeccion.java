@@ -9,23 +9,32 @@ public class Inspeccion {
     private Actividad activ;
     private int dia;
     private int mes;
-    private float horas;
-    private String riesgoEvaluado;
+    private int horas;
+    private int riesgoEvaluado;
     private boolean resultado;
+    private String comentarios;
 
-    public Inspector getInspec() {
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public Inspector getInspector() {
         return inspec;
     }
 
-    public void setInspec(Inspector inspec) {
+    public void setInspector(Inspector inspec) {
         this.inspec = inspec;
     }
 
-    public Actividad getActiv() {
+    public Actividad getActividad() {
         return activ;
     }
 
-    public void setActiv(Actividad activ) {
+    public void setActividad(Actividad activ) {
         this.activ = activ;
     }
 
@@ -45,19 +54,19 @@ public class Inspeccion {
         this.mes = mes;
     }
 
-    public float getHoras() {
+    public int getHoras() {
         return horas;
     }
 
-    public void setHoras(float horas) {
+    public void setHoras(int horas) {
         this.horas = horas;
     }
 
-    public String getRiesgoEvaluado() {
+    public int getRiesgoEvaluado() {
         return riesgoEvaluado;
     }
 
-    public void setRiesgoEvaluado(String riesgoEvaluado) {
+    public void setRiesgoEvaluado(int riesgoEvaluado) {
         this.riesgoEvaluado = riesgoEvaluado;
     }
 

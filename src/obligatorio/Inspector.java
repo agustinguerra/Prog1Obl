@@ -7,7 +7,12 @@ public class Inspector {
     private int edad;
     private String cedula;
     
-  
+    @Override
+    
+    public String toString(){
+        return "Nombre: "+this.getNombre()+"\n"+"Edad: "
+                +this.getEdad()+"\n"+"Cedula: "+this.getCedula()+"\n";
+    }
     
     public void setNombre(String nomb){
         this.nombre=nomb;

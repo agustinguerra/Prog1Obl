@@ -19,11 +19,17 @@ public class Prueba {
                 if(edad>=0){
                     bandera=true;
                 }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
+                }
             }
             catch(InputMismatchException exception)
             {
+                System.out.println("");
                 System.out.println("El dato ingresado no corresponde el tipo correcto.");
-                in.next();
+                System.out.println("");
+                in.nextLine();
                 bandera=false;
             }
             inspec.setEdad(edad);
@@ -33,8 +39,8 @@ public class Prueba {
     public static void setCedulaInspector(Inspector inspec){
         boolean bandera=false;
         Scanner in= new Scanner(System.in);
-        System.out.println("Por favor ingrese la cedula del inspector.");
         System.out.println("");
+        System.out.println("Por favor ingrese la cedula del inspector.");
         while(!bandera){
             String ced=in.nextLine();
             if (ced.matches("[0-9]+") && ((ced.length()==8)||(ced.length()==7))){
@@ -43,10 +49,10 @@ public class Prueba {
             }
             else
             {
+                System.out.println("");
                 System.out.println("Los datos que usted ingreso no son correctos.");
                 System.out.println("");
                 System.out.println("Ingreselos de nuevo.");
-                System.out.println("");
             }
         }
     }
@@ -85,6 +91,7 @@ public class Prueba {
                 seccion=in.nextInt();
                 if (0<seccion && seccion<11){
                     bandera=true;
+                    System.out.println("");
                 }
                 else{
                     InputMismatchException exception = new InputMismatchException();
@@ -93,7 +100,10 @@ public class Prueba {
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
+                System.out.println("");
                 System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                System.out.println("");
                 bandera=false;
             }
             activ.setSeccion(seccion);
@@ -110,6 +120,7 @@ public class Prueba {
                 System.out.println("Por favor ingrese la descripcion de la activdad.");
                 descripcion=in.nextLine();
                 bandera=true;
+                System.out.println("");
             }
             catch(InputMismatchException exception)
             {
@@ -131,69 +142,41 @@ public class Prueba {
                 duracion=in.nextInt();
                 if(duracion>=0){
                     bandera=true;
+                    System.out.println("");
+                }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
                 }
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
+                System.out.println("");
                 System.out.println("El dato ingresado no corresponde el tipo correcto.");
+                System.out.println("");
                 bandera=false;
             }
             activ.setDuracion(duracion);
         }        
     }
 
-    public static String RiesgoPrincipalAString(Actividad activ){
-        String tipoRiesgoPrincipal = null;
-        switch (activ.getTipoDeRiesgoSecundario()) {
-            case 1:
-                tipoRiesgoPrincipal="Riesgo fisico";
-                break;
-            case 2:
-                tipoRiesgoPrincipal="Riesgo quimico";
-                break;
-            case 3:
-                tipoRiesgoPrincipal="Riesgo biologico";
-                break;
-            case 4:
-                tipoRiesgoPrincipal="Riesgo sicosocial";
-                break;
-        }
-        return tipoRiesgoPrincipal;    
-    }    
+   
     
-    public static String RiesgoSecundarioAString(Actividad activ){
-        String tipoRiesgoSecundario = null;
-        switch (activ.getTipoDeRiesgoSecundario()) {
-            case 1:
-                tipoRiesgoSecundario="Riesgo fisico";
-                break;
-            case 2:
-                tipoRiesgoSecundario="Riesgo quimico";
-                break;
-            case 3:
-                tipoRiesgoSecundario="Riesgo biologico";
-                break;
-            case 4:
-                tipoRiesgoSecundario="Riesgo sicosocial";
-                break;
-        }
-        return tipoRiesgoSecundario;    
-    }
+
     
     public static void setTipoDeRiesgoPrincipal(Actividad activ){
         Scanner in = new Scanner (System.in);        
         boolean bandera = false;
-        System.out.println("");
         int riesgo=0;
         while(!bandera){
             try
             {
                 System.out.println("Por favor ingrese el numero correspondiente al tipo de riesgo principal de la actividad.");
                 riesgo=in.nextInt();
-                if (0<riesgo && riesgo<5){
-                    if (riesgo!=activ.getTipoDeRiesgoSecundario()){
-                        bandera=true;
-                    }    
+                if ((0<riesgo && riesgo<5)&& (riesgo!=activ.getTipoDeRiesgoSecundario())){
+                    bandera=true;
+                    System.out.println("");
                 }
                 else{
                     InputMismatchException exception = new InputMismatchException();
@@ -202,7 +185,10 @@ public class Prueba {
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
+                System.out.println("");
                 System.out.println("El dato ingresado no corresponde el tipo correcto,no esta en el intervalo correcto o el riesgo secundario coincide.");
+                System.out.println("");
                 bandera=false;
             }
             activ.setTipoDeRiesgoPrincipal(riesgo);
@@ -212,25 +198,25 @@ public class Prueba {
     public static void setTipoDeRiesgoSecundario(Actividad activ){
         Scanner in = new Scanner (System.in);        
         boolean bandera = false;
-        System.out.println("");
         int riesgo=0;
         while(!bandera){
             try
             {
                 System.out.println("Por favor ingrese el numero correspondiente al tipo de riesgo secundario de la actividad.");
                 riesgo=in.nextInt();
-                if (0<riesgo && riesgo<5){
-                    if (riesgo!=activ.getTipoDeRiesgoPrincipal()){
-                        bandera=true;
-                    }   
+                if ((0<riesgo && riesgo<5) && (riesgo!=activ.getTipoDeRiesgoPrincipal())){
+                    System.out.println("");
+                    bandera=true;
                 }
                 else{
+                    System.out.println("");
                     InputMismatchException exception = new InputMismatchException();
                     throw exception;
                 }
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
                 System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
                 bandera=false;
             }
@@ -253,6 +239,7 @@ public class Prueba {
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
                 System.out.println("El dato ingresado no corresponde el tipo correcto.");
                 bandera=false;
             }
@@ -275,6 +262,7 @@ public class Prueba {
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
                 System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
                 bandera=false;
             }
@@ -323,6 +311,7 @@ public class Prueba {
         System.out.println("");
         setNombreInspector(inspectorUno);
         setCedulaInspector(inspectorUno);
+        System.out.println("");
         System.out.println("A continuacion se ingresaran las dos primeras actividades.");
         System.out.println("");
         Actividad actividadUno = new Actividad();
@@ -333,6 +322,8 @@ public class Prueba {
         setDuracionActividad(actividadUno);
         setTipoDeRiesgoPrincipal(actividadUno);
         setTipoDeRiesgoSecundario(actividadUno);
+        System.out.println(actividadUno);
+        System.out.println("");
         System.out.println("Actividad dos.");
         setSeccionActividad(actividadDos);
         setDescripcionActividad(actividadDos);
@@ -353,6 +344,7 @@ public class Prueba {
         inspeccionDos.setInspector(inspectorUno);
         inspeccionUno.setActividad(actividadUno);
         inspeccionDos.setActividad(actividadDos);
+        System.out.println("");
         System.out.println("Inspeccion Uno.");
         setHoraInspeccion(inspeccionUno);
         setDiaInspeccion(inspeccionUno);

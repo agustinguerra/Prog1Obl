@@ -13,6 +13,15 @@ public class Inspeccion {
     private int riesgoEvaluado;
     private boolean resultado;
     private String comentarios;
+    
+    @Override
+    public String toString(){
+        return "Inspector: "+this.getInspector()+"\n"+"Actividad: "+this.getActividad()+"\n"
+                +"Dia: "+this.getDia()+"\n"+"Mes: "+this.getMes()+"\n"+"Horas: "+this.getHoras()+"\n"
+                +"Riesgo Evaluado: "+this.getRiesgoEvaluado()+"\n"+"Resultado: "+this.getResultado()+"\n"
+                +"Comentarios: "+this.getComentarios()+"\n";
+    }
+    
 
     public String getComentarios() {
         return comentarios;

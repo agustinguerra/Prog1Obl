@@ -359,6 +359,16 @@ public class Prueba {
         setComentarios(inspeccionDos);
         System.out.println(inspeccionDos);
         System.out.println("");
+        
+        System.out.println("╔════════════╗\n"+ 
+                           "║ Elige una opción  ║\n"+
+                           "║                   ╚═════════════╗\n"+ 
+                           "║1 - Actualizar datos del Inspector       ║\n"+
+                           "║2 - Actualizar datos de las actividades  ║\n"+
+                           "║3 - Mostrat las actividades              ║\n"+
+                           "║4 - Registrar las inspecciones           ║\n"+
+                           "║5 - Terminar                             ║\n"+
+                           "╚══════════════════════════╝");
     }
     
 }

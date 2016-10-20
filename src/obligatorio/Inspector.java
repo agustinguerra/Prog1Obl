@@ -10,8 +10,8 @@ public class Inspector {
     @Override
     
     public String toString(){
-        return "Nombre: "+this.getNombre()+"\n"+"Edad: "
-                +this.getEdad()+"\n"+"Cedula: "+this.getCedula()+"\n";
+        return "Nombre: "+this.getNombre()+"\n"+"Edad: "+this.getEdad()+"\n"
+                +"Cedula: "+this.getCedula()+"\n";
     }
     
     public void setNombre(String nomb){

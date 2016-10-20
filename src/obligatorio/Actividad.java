@@ -12,21 +12,21 @@ public class Actividad {
     
     protected String RiesgoPrincipalAString(){
     String tipoRiesgoPrincipal = null;
-        switch (this.getTipoDeRiesgoPrincipal()) {
-            case 1:
-                tipoRiesgoPrincipal="Riesgo fisico";
-                break;
-            case 2:
-                tipoRiesgoPrincipal="Riesgo quimico";
-                break;
-            case 3:
-                tipoRiesgoPrincipal="Riesgo biologico";
-                break;
-            case 4:
-                tipoRiesgoPrincipal="Riesgo sicosocial";
-                break;
-        }
-        return tipoRiesgoPrincipal;    
+    switch (this.getTipoDeRiesgoPrincipal()) {
+        case 1:
+            tipoRiesgoPrincipal="Riesgo fisico";
+            break;
+        case 2:
+            tipoRiesgoPrincipal="Riesgo quimico";
+            break;
+        case 3:
+            tipoRiesgoPrincipal="Riesgo biologico";
+            break;
+        case 4:
+            tipoRiesgoPrincipal="Riesgo sicosocial";
+            break;
+    }
+    return tipoRiesgoPrincipal;    
     } 
     
     
@@ -52,8 +52,9 @@ public class Actividad {
     @Override
     public String toString(){
         return "Seccion: "+this.getSeccion()+"\n"+"Descripcion: "+this.getDescripcion()+"\n"
-                + "Duracion: "+this.getDuracion()+"\n"+"Tipo de riesgo principal: "+this.RiesgoPrincipalAString()+
-                "\n"+"Tipo de riesgo secundario: "+this.RiesgoSecundarioAString()+"\n";
+                +"Duracion: "+this.getDuracion()+"\n"+"Tipo de riesgo principal: "
+                +this.RiesgoPrincipalAString()+"\n"+"Tipo de riesgo secundario: "
+                +this.RiesgoSecundarioAString()+"\n";
     }
     
     public int getSeccion() {

@@ -316,7 +316,7 @@ public class Prueba {
         System.out.println("");
         Actividad actividadUno = new Actividad();
         Actividad actividadDos = new Actividad();
-        System.out.println("Actividad uno.");
+        System.out.println("Actividad UNO");
         setSeccionActividad(actividadUno);
         setDescripcionActividad(actividadUno);
         setDuracionActividad(actividadUno);
@@ -324,7 +324,7 @@ public class Prueba {
         setTipoDeRiesgoSecundario(actividadUno);
         System.out.println(actividadUno);
         System.out.println("");
-        System.out.println("Actividad dos.");
+        System.out.println("Actividad DOS");
         setSeccionActividad(actividadDos);
         setDescripcionActividad(actividadDos);
         setDuracionActividad(actividadDos);
@@ -345,17 +345,20 @@ public class Prueba {
         inspeccionUno.setActividad(actividadUno);
         inspeccionDos.setActividad(actividadDos);
         System.out.println("");
-        System.out.println("Inspeccion Uno.");
+        System.out.println("Inspeccion UNO");
         setHoraInspeccion(inspeccionUno);
         setDiaInspeccion(inspeccionUno);
         setMesInspeccion(inspeccionUno);
         setComentarios(inspeccionUno);
-        
-        System.out.println("Inspeccion Dos");
+        System.out.println(inspeccionUno);
+        System.out.println("");
+        System.out.println("Inspeccion DOS");
         setHoraInspeccion(inspeccionDos);
         setDiaInspeccion(inspeccionDos);
         setMesInspeccion(inspeccionDos);
         setComentarios(inspeccionDos);
+        System.out.println(inspeccionDos);
+        System.out.println("");
     }
     
 }

@@ -330,8 +330,8 @@ public class Prueba {
         setDuracionActividad(actividadDos);
         setTipoDeRiesgoPrincipal(actividadDos);
         setTipoDeRiesgoSecundario(actividadDos);
-        
-        
+        System.out.println(actividadDos);
+        System.out.println("");
         
         //SE CREAN LAS DOS INSPECCIONES, ESTA PARTE VA DENTRO DE LA OPCION  CREAR INSPECCIONES EN EL MENU, SEGUN DICE LA LETRA.
         //ESTA SECUENCIA NO ES GENERICA, SOLO SIRVE PARA LA CREACION DE LAS PRIMERAS DOS INSPEECIONES.

@@ -377,28 +377,32 @@ public class Prueba {
                                    "║5 - Terminar                             ║\n"+
                                    "╚══════════════════════════╝");
             
-                seleccion = Integer.parseInt(scanner.nextLine()); 
-	
+                	
                 switch(seleccion){
                 case 1: 
-					
+			System.out.println("Actualizar los datos del Inpector");
+                        System.out.println("");
 		break;
                 case 2: 
-					
+			System.out.println("Actualizar los datos de las actividades");
+                        System.out.println("");
 		break;
                 case 3: 
-					
+			System.out.println("Mostrat las actividades");
+                        System.out.println("");
 		break;
                 case 4: 
-					
+			System.out.println("Registrar las inspecciones");
+                        System.out.println("");
 		break;
                 case 5: 
 			System.out.println("Hasta luego!");
                 break;
                 default:
-                System.out.println("La opción elegida no es correcta");
+                        System.out.println("La opción elegida no es correcta");
+                        System.out.println("");
                 break;
-                                    }
+                }
 				
                 System.out.println("\n");
             

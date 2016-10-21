@@ -360,15 +360,52 @@ public class Prueba {
         System.out.println(inspeccionDos);
         System.out.println("");
         
-        System.out.println("╔════════════╗\n"+ 
-                           "║ Elige una opción  ║\n"+
-                           "║                   ╚═════════════╗\n"+ 
-                           "║1 - Actualizar datos del Inspector       ║\n"+
-                           "║2 - Actualizar datos de las actividades  ║\n"+
-                           "║3 - Mostrat las actividades              ║\n"+
-                           "║4 - Registrar las inspecciones           ║\n"+
-                           "║5 - Terminar                             ║\n"+
-                           "╚══════════════════════════╝");
+        Scanner scanner = new Scanner(System.in);
+        int seleccion =0;
+        
+        while(seleccion != 5){
+            
+            try{
+                    
+                System.out.println("╔════════════╗\n"+ 
+                                   "║ Elige una opción  ║\n"+
+                                   "║                   ╚═════════════╗\n"+ 
+                                   "║1 - Actualizar datos del Inspector       ║\n"+
+                                   "║2 - Actualizar datos de las actividades  ║\n"+
+                                   "║3 - Mostrat las actividades              ║\n"+
+                                   "║4 - Registrar las inspecciones           ║\n"+
+                                   "║5 - Terminar                             ║\n"+
+                                   "╚══════════════════════════╝");
+            
+                seleccion = Integer.parseInt(scanner.nextLine()); 
+	
+                switch(seleccion){
+                case 1: 
+					
+		break;
+                case 2: 
+					
+		break;
+                case 3: 
+					
+		break;
+                case 4: 
+					
+		break;
+                case 5: 
+			System.out.println("Hasta luego!");
+                break;
+                default:
+                System.out.println("La opción elegida no es correcta");
+                break;
+                                    }
+				
+                System.out.println("\n");
+            
+            }catch(Exception e){
+            System.out.println("¡Error!");
+            }
+        }
     }
     
 }

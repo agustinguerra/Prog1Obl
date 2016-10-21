@@ -360,10 +360,10 @@ public class Prueba {
         System.out.println(inspeccionDos);
         System.out.println("");
         
-        Scanner scanner = new Scanner(System.in);
-        int seleccion =0;
+        Scanner in = new Scanner(System.in);
+        int seleccion = -1;
         
-        while(seleccion != 5){
+        while(seleccion != 0){
             
             try{
                     
@@ -376,7 +376,8 @@ public class Prueba {
                                    "║4 - Registrar las inspecciones           ║\n"+
                                    "║5 - Terminar                             ║\n"+
                                    "╚══════════════════════════╝");
-            
+                
+                seleccion = Integer.parseInt(in.nextLine());
                 	
                 switch(seleccion){
                 case 1: 
@@ -400,7 +401,6 @@ public class Prueba {
                 break;
                 default:
                         System.out.println("La opción elegida no es correcta");
-                        System.out.println("");
                 break;
                 }
 				

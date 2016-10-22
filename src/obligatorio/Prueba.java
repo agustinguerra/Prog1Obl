@@ -217,7 +217,8 @@ public class Prueba {
             catch(InputMismatchException exception)
             {
                 in.nextLine();
-                System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                System.out.println("El dato ingresado no corresponde el tipo correcto,no esta en el intervalo correcto o el riesgo principal coincide.");
+                System.out.println("");
                 bandera=false;
             }
             activ.setTipoDeRiesgoSecundario(riesgo);
@@ -232,15 +233,21 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese las horas de la inspeccion.");
+                System.out.println("");
                 hora=in.nextInt();
                 if(hora>=0){
                     bandera=true;
+                }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
                 }
             }
             catch(InputMismatchException exception)
             {
                 in.nextLine();
                 System.out.println("El dato ingresado no corresponde el tipo correcto.");
+                System.out.println("");
                 bandera=false;
             }
             inspec.setHoras(hora);
@@ -255,15 +262,21 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese el dia de la inspeccion.");
+                System.out.println("");
                 dia=in.nextInt();
                 if(dia>0 && dia<31){
                     bandera=true;
+                }
+                else{
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
                 }
             }
             catch(InputMismatchException exception)
             {
                 in.nextLine();
                 System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                System.out.println("");
                 bandera=false;
             }
             inspec.setDia(dia);
@@ -278,14 +291,21 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese el mes de la inspeccion.");
+                System.out.println("");
                 mes=in.nextInt();
                 if(mes>0 && mes<13){
                     bandera=true;
                 }
+                else{
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
+                }
             }
             catch(InputMismatchException exception)
             {
+                in.nextLine();
                 System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                System.out.println("");
                 bandera=false;
             }
             inspec.setMes(mes);
@@ -298,6 +318,35 @@ public class Prueba {
         String coment = in.nextLine();
         inspec.setComentarios(coment);
     }
+
+    public static void setResultadoInspeccion(Inspeccion inspec){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        int resultado=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese 1 si la inspeccion fue aprobada o 2 si fue rechazada.");
+                System.out.println("");
+                resultado=in.nextInt();
+                if(resultado>-1 && resultado<2){
+                    bandera=true;
+                }
+                else{
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                in.nextLine();
+                System.out.println("El dato ingresado no corresponde el tipo correcto o no esta en el intervalo correcto.");
+                System.out.println("");
+                bandera=false;
+            }
+            inspec.setResultado(resultado); 
+        }        
+    }   
     
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenido al sistema de control de procesos.");
@@ -439,10 +488,15 @@ public class Prueba {
 			System.out.println("Registrar las inspecciones");
                         System.out.println("");
                         System.out.println("Inspeccion UNO");
+                        System.out.println("");
                         setHoraInspeccion(inspeccionUno);
+                        System.out.println("");
                         setDiaInspeccion(inspeccionUno);
+                        System.out.println("");
                         setMesInspeccion(inspeccionUno);
                         setComentarios(inspeccionUno);
+                        setResultadoInspeccion(inspeccionUno);
+                        System.out.println("");
                         System.out.println(inspeccionUno);
                         System.out.println("");
                         System.out.println("Inspeccion DOS");
@@ -450,7 +504,18 @@ public class Prueba {
                         setDiaInspeccion(inspeccionDos);
                         setMesInspeccion(inspeccionDos);
                         setComentarios(inspeccionDos);
+                        setResultadoInspeccion(inspeccionDos);
                         System.out.println(inspeccionDos);
+                        System.out.println("");
+                        if (inspeccionUno.getResultado()==true && inspeccionDos.getResultado()==true){
+                            System.out.println("El grado de rechazo es bajo");
+                        }
+                        else if (inspeccionUno.getResultado()==false && inspeccionDos.getResultado()==false){
+                            System.out.println("El grado de rechazo es alto");
+                        }
+                        else {
+                            System.out.println("El grado de rechazo es medio");
+                        }
                         System.out.println("");
                 break;
                 case 6:
@@ -464,6 +529,7 @@ public class Prueba {
                 System.out.println("\n");
             
             }catch(Exception e){
+                in.nextLine();
             System.out.println("¡Error!");
             }
         }

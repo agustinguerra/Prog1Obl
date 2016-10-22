@@ -1,8 +1,6 @@
 
 package obligatorio; 
 
-import java.io.IOException;
-
 
 public class Inspeccion {
     private Inspector inspec;
@@ -18,7 +16,7 @@ public class Inspeccion {
     public String toString(){
         return "Inspector: "+this.getInspector()+"\n"+"Actividad: "+this.getActividad()+"\n"
                 +"Dia: "+this.getDia()+"\n"+"Mes: "+this.getMes()+"\n"+"Horas: "+this.getHoras()+"\n"
-                +"Riesgo Evaluado: "+this.getRiesgoEvaluado()+"\n"+"Resultado: "+this.getResultado()+"\n"
+                +"Riesgo Evaluado: "+this.getRiesgoEvaluado()+"\n"+"Resultado: "+this.resultadoAString()+"\n"
                 +"Comentarios: "+this.getComentarios()+"\n";
     }
     
@@ -83,21 +81,17 @@ public class Inspeccion {
         return resultado;
     }
 
-
-
-    public void setResultado(String resultado) throws IOException {
-        switch (resultado) {
-            case "Aprobada":
-                this.resultado = true;
-                break;
-            case "Rechazada":
-                this.resultado = false;
-                break;
-            default:
-                IOException e = new IOException();
-                throw e;
-                
+    public String resultadoAString(){
+        if (this.resultado==true){
+            return "Aprobada";
         }
+        else{
+            return "No aprobada";
+        }
+    }
+
+    public void setResultado(int resultado){
+        this.resultado = resultado==1;
     }
     
     public Inspeccion() {

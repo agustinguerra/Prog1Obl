@@ -304,6 +304,9 @@ public class Prueba {
         System.out.println("");
         System.out.println("A continuacion se definiran dos actividades y un inspector.");
         System.out.println("");
+        
+//CREACION INSPECTOR
+        
         System.out.println("Por favor ingrese los datos correspondientes al inspector.");
         System.out.println("");
         Inspector inspectorUno = new Inspector();
@@ -312,6 +315,9 @@ public class Prueba {
         setNombreInspector(inspectorUno);
         setCedulaInspector(inspectorUno);
         System.out.println("");
+
+//CREACION ACTIVIDADES
+
         System.out.println("A continuacion se ingresaran las dos primeras actividades.");
         System.out.println("");
         Actividad actividadUno = new Actividad();
@@ -333,9 +339,8 @@ public class Prueba {
         System.out.println(actividadDos);
         System.out.println("");
         
-        //SE CREAN LAS DOS INSPECCIONES, ESTA PARTE VA DENTRO DE LA OPCION  CREAR INSPECCIONES EN EL MENU, SEGUN DICE LA LETRA.
-        //ESTA SECUENCIA NO ES GENERICA, SOLO SIRVE PARA LA CREACION DE LAS PRIMERAS DOS INSPEECIONES.
-        //TRATO DE HACERLA LO MAS GENERICA POSIBLE.
+// CREACION INSPECCIONES
+
         Inspeccion inspeccionUno;
         Inspeccion inspeccionDos;
         inspeccionUno = new Inspeccion();
@@ -345,25 +350,12 @@ public class Prueba {
         inspeccionUno.setActividad(actividadUno);
         inspeccionDos.setActividad(actividadDos);
         System.out.println("");
-        System.out.println("Inspeccion UNO");
-        setHoraInspeccion(inspeccionUno);
-        setDiaInspeccion(inspeccionUno);
-        setMesInspeccion(inspeccionUno);
-        setComentarios(inspeccionUno);
-        System.out.println(inspeccionUno);
-        System.out.println("");
-        System.out.println("Inspeccion DOS");
-        setHoraInspeccion(inspeccionDos);
-        setDiaInspeccion(inspeccionDos);
-        setMesInspeccion(inspeccionDos);
-        setComentarios(inspeccionDos);
-        System.out.println(inspeccionDos);
-        System.out.println("");
+
         
         Scanner in = new Scanner(System.in);
         int seleccion = -1;
         
-        while(seleccion != 0){
+        while(seleccion != 0 && seleccion!=6){
             
             try{
                     
@@ -371,33 +363,98 @@ public class Prueba {
                                    "║ Elige una opción  ║\n"+
                                    "║                   ╚═════════════╗\n"+ 
                                    "║1 - Actualizar datos del Inspector       ║\n"+
-                                   "║2 - Actualizar datos de las actividades  ║\n"+
-                                   "║3 - Mostrat las actividades              ║\n"+
-                                   "║4 - Registrar las inspecciones           ║\n"+
-                                   "║5 - Terminar                             ║\n"+
+                                   "║2 - Actualizar actividad UNO             ║\n"+
+                                   "║3 - Actualizar actividad DOS             ║\n"+
+                                   "║4 - Mostrar las actividades              ║\n"+
+                                   "║5 - Registrar las inspecciones           ║\n"+
+                                   "║6 - Terminar                             ║\n"+                        
                                    "╚══════════════════════════╝");
                 
-                seleccion = Integer.parseInt(in.nextLine());
+                seleccion = in.nextInt();
                 	
                 switch(seleccion){
                 case 1: 
-			System.out.println("Actualizar los datos del Inpector");
+			System.out.println("Actualizar los datos del Inspector");
+                        setEdadInspector(inspectorUno);
+                        System.out.println("");
+                        setNombreInspector(inspectorUno);
+                        setCedulaInspector(inspectorUno);
                         System.out.println("");
 		break;
                 case 2: 
-			System.out.println("Actualizar los datos de las actividades");
+			System.out.println("Actualizar los datos de la actividad UNO");
+                        setSeccionActividad(actividadUno);
+                        setDescripcionActividad(actividadUno);
+                        setDuracionActividad(actividadUno);
+                        setTipoDeRiesgoPrincipal(actividadUno);
+                        setTipoDeRiesgoSecundario(actividadUno);
+                        System.out.println(actividadUno);
                         System.out.println("");
 		break;
                 case 3: 
-			System.out.println("Mostrat las actividades");
+			System.out.println("Actualizar los datos de la actividad DOS");
+                        setSeccionActividad(actividadDos);
+                        setDescripcionActividad(actividadDos);
+                        setDuracionActividad(actividadDos);
+                        setTipoDeRiesgoPrincipal(actividadDos);
+                        setTipoDeRiesgoSecundario(actividadDos);
+                        System.out.println(actividadDos);                        
                         System.out.println("");
 		break;
                 case 4: 
-			System.out.println("Registrar las inspecciones");
+			System.out.println("Mostrar las actividades");                       
                         System.out.println("");
+                        if(actividadUno.getTipoDeRiesgoPrincipal()>actividadDos.getTipoDeRiesgoPrincipal()){
+                            System.out.println("Actividad UNO");
+                            System.out.println(actividadUno);
+                            System.out.println("Actividad DOS");
+                            System.out.println(actividadDos);
+                        }
+                        else if (actividadUno.getTipoDeRiesgoPrincipal()<actividadDos.getTipoDeRiesgoPrincipal()){
+                            System.out.println("Actividad DOS");
+                            System.out.println(actividadDos);
+                            System.out.println("Actividad UNO");
+                            System.out.println(actividadUno);
+                        }
+                        else if (actividadUno.getTipoDeRiesgoSecundario()>actividadDos.getTipoDeRiesgoSecundario()){
+                            System.out.println("Actividad UNO");
+                            System.out.println(actividadUno);
+                            System.out.println("Actividad DOS");
+                            System.out.println(actividadDos);
+                        }
+                        else if (actividadUno.getTipoDeRiesgoSecundario()<actividadDos.getTipoDeRiesgoSecundario()){
+                            System.out.println("Actividad DOS");
+                            System.out.println(actividadDos);
+                            System.out.println("Actividad UNO");
+                            System.out.println(actividadUno);                        
+                        } 
+                        else {
+                            System.out.println("Actividad UNO");
+                            System.out.println(actividadUno);
+                            System.out.println("Actividad DOS");
+                            System.out.println(actividadDos);
+                        }      
 		break;
                 case 5: 
-			System.out.println("Hasta luego!");
+			System.out.println("Registrar las inspecciones");
+                        System.out.println("");
+                        System.out.println("Inspeccion UNO");
+                        setHoraInspeccion(inspeccionUno);
+                        setDiaInspeccion(inspeccionUno);
+                        setMesInspeccion(inspeccionUno);
+                        setComentarios(inspeccionUno);
+                        System.out.println(inspeccionUno);
+                        System.out.println("");
+                        System.out.println("Inspeccion DOS");
+                        setHoraInspeccion(inspeccionDos);
+                        setDiaInspeccion(inspeccionDos);
+                        setMesInspeccion(inspeccionDos);
+                        setComentarios(inspeccionDos);
+                        System.out.println(inspeccionDos);
+                        System.out.println("");
+                break;
+                case 6:
+                        System.out.println("Hasta luego!");
                 break;
                 default:
                         System.out.println("La opción elegida no es correcta");

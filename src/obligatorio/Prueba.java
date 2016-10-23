@@ -326,10 +326,10 @@ public class Prueba {
         while(!bandera){
             try
             {
-                System.out.println("Por favor ingrese 1 si la inspeccion fue aprobada o 2 si fue rechazada.");
+                System.out.println("Por favor ingrese 1 si la inspeccion fue aprobada o 0 si fue rechazada.");
                 System.out.println("");
                 resultado=in.nextInt();
-                if(resultado>-1 && resultado<=2){
+                if(resultado>-1 && resultado<2){
                     bandera=true;
                 }
                 else{

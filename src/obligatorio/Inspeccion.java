@@ -14,7 +14,7 @@ public class Inspeccion {
     
     @Override
     public String toString(){
-        return "Inspector: "+this.getInspector()+"\n"+"Actividad: "+this.getActividad()+"\n"
+        return "Inspector: "+this.getInspector()+"\n"+"Actividad"+"\n"+this.getActividad()+"\n"
                 +"Dia: "+this.getDia()+"\n"+"Mes: "+this.getMes()+"\n"+"Horas: "+this.getHoras()+"\n"
                 +"Riesgo Evaluado: "+this.getRiesgoEvaluado()+"\n"+"Resultado: "+this.resultadoAString()+"\n"
                 +"Comentarios: "+this.getComentarios()+"\n";

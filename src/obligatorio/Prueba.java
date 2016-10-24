@@ -66,12 +66,18 @@ public class Prueba {
             {
                 System.out.println("Por favor ingrese el nombre del inspector.");
                 nombre=in.nextLine();
-                bandera=true;
+                if (nombre.length()>0){
+                    bandera=true;
+                }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;                       
+                }
             }
             catch(InputMismatchException exception)
             {
-                System.out.println("El dato ingresado no corresponde el tipo correcto.");
-                in.next();
+                System.out.println("El dato ingresado no corresponde el tipo correcto, o no ha ingresado nombre.");
+                System.out.println("");
                 bandera=false;
             }
             inspec.setNombre(nombre);

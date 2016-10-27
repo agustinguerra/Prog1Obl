@@ -353,6 +353,37 @@ public class Prueba {
             inspec.setResultado(resultado); 
         }        
     }   
+
+
+    public static void setRiesgoEvaluado(Inspeccion inspec){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        int riesgo=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese el riesgo a evaluar.");
+                System.out.println("");
+                riesgo=in.nextInt();
+                if(riesgo==(inspec.getActividad()).getTipoDeRiesgoPrincipal()  ||  (inspec.getActividad()).getTipoDeRiesgoSecundario()==riesgo){
+                    bandera=true;
+                }
+                else{
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                in.nextLine();
+                System.out.println("El dato ingresado no corresponde el tipo correcto o no concide con el riesgo principal/secundario de la actividad.");
+                System.out.println("");
+                bandera=false;
+            }
+            inspec.setRiesgoEvaluado(riesgo); 
+        }        
+    }   
+
     
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenido al sistema de control de procesos.");
@@ -500,6 +531,7 @@ public class Prueba {
                         setDiaInspeccion(inspeccionUno);
                         System.out.println("");
                         setMesInspeccion(inspeccionUno);
+                        setRiesgoEvaluado(inspeccionUno);
                         setComentarios(inspeccionUno);
                         setResultadoInspeccion(inspeccionUno);
                         System.out.println("");
@@ -509,6 +541,7 @@ public class Prueba {
                         setHoraInspeccion(inspeccionDos);
                         setDiaInspeccion(inspeccionDos);
                         setMesInspeccion(inspeccionDos);
+                        setRiesgoEvaluado(inspeccionDos);
                         setComentarios(inspeccionDos);
                         setResultadoInspeccion(inspeccionDos);
                         System.out.println(inspeccionDos);

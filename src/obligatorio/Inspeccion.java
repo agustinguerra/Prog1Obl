@@ -14,13 +14,32 @@ public class Inspeccion {
     
     @Override
     public String toString(){
-        return "Inspector: "+this.getInspector()+"\n"+"Actividad"+"\n"+this.getActividad()+"\n"
+        return "Inspector"+"\n"+this.getInspector()+"\n"+"Actividad"+"\n"+this.getActividad()+"\n"
                 +"Dia: "+this.getDia()+"\n"+"Mes: "+this.getMes()+"\n"+"Horas: "+this.getHoras()+"\n"
-                +"Riesgo Evaluado: "+this.getRiesgoEvaluado()+"\n"+"Resultado: "+this.resultadoAString()+"\n"
+                +"Riesgo Evaluado: "+this.RiesgoAString()+"\n"+"Resultado: "+this.resultadoAString()+"\n"
                 +"Comentarios: "+this.getComentarios()+"\n";
     }
     
 
+    protected String RiesgoAString(){
+        String tipoRiesgo = null;
+        switch (this.getRiesgoEvaluado()) {
+            case 1:
+                tipoRiesgo="Riesgo fisico";
+                break;
+            case 2:
+                tipoRiesgo="Riesgo quimico";
+                break;
+            case 3:
+                tipoRiesgo="Riesgo biologico";
+                break;
+            case 4:
+                tipoRiesgo="Riesgo sicosocial";
+                break;
+    }
+    return tipoRiesgo;    
+    } 
+    
     public String getComentarios() {
         return comentarios;
     }

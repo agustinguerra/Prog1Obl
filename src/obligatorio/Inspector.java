@@ -2,13 +2,10 @@
 package obligatorio; 
 
 
-public class Inspector {
-    private String nombre;
-    private int edad;
-    private String cedula;
+public class Inspector extends Persona {
+
     
     @Override
-    
     public String toString(){
         return "Nombre: "+this.getNombre()+"\n"+"Edad: "+this.getEdad()+"\n"
                 +"Cedula: "+this.getCedula()+"\n";

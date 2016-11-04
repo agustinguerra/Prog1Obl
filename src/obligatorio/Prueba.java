@@ -387,177 +387,61 @@ public class Prueba {
     
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenido al sistema de control de procesos.");
-        System.out.println("");
-        System.out.println("A continuacion se definiran dos actividades y un inspector.");
-        System.out.println("");
-        
-//CREACION INSPECTOR
-        
-        System.out.println("Por favor ingrese los datos correspondientes al inspector.");
-        System.out.println("");
-        Inspector inspectorUno = new Inspector();
-        setEdadInspector(inspectorUno);
-        System.out.println("");
-        setNombreInspector(inspectorUno);
-        setCedulaInspector(inspectorUno);
-        System.out.println("");
-
-//CREACION ACTIVIDADES
-
-        System.out.println("A continuacion se ingresaran las dos primeras actividades.");
-        System.out.println("");
-        Actividad actividadUno = new Actividad();
-        Actividad actividadDos = new Actividad();
-        System.out.println("Actividad UNO");
-        setSeccionActividad(actividadUno);
-        setDescripcionActividad(actividadUno);
-        setDuracionActividad(actividadUno);
-        setTipoDeRiesgoPrincipal(actividadUno);
-        setTipoDeRiesgoSecundario(actividadUno);
-        System.out.println(actividadUno);
-        System.out.println("");
-        System.out.println("Actividad DOS");
-        setSeccionActividad(actividadDos);
-        setDescripcionActividad(actividadDos);
-        setDuracionActividad(actividadDos);
-        setTipoDeRiesgoPrincipal(actividadDos);
-        setTipoDeRiesgoSecundario(actividadDos);
-        System.out.println(actividadDos);
-        System.out.println("");
-        
-// CREACION INSPECCIONES
-
-        Inspeccion inspeccionUno;
-        Inspeccion inspeccionDos;
-        inspeccionUno = new Inspeccion();
-        inspeccionDos = new Inspeccion();
-        inspeccionUno.setInspector(inspectorUno);
-        inspeccionDos.setInspector(inspectorUno);
-        inspeccionUno.setActividad(actividadUno);
-        inspeccionDos.setActividad(actividadDos);
-        System.out.println("");
-
-        
+        System.out.println("");     
         Scanner in = new Scanner(System.in);
         int seleccion = -1;
         
-        while(seleccion != 0 && seleccion!=6){
+        while(seleccion!=9){
             
             try{
                     
                 System.out.println("╔════════════╗\n"+ 
                                    "║ Elige una opción  ║\n"+
                                    "║                   ╚═════════════╗\n"+ 
-                                   "║1 - Actualizar datos del Inspector       ║\n"+
-                                   "║2 - Actualizar actividad UNO             ║\n"+
-                                   "║3 - Actualizar actividad DOS             ║\n"+
-                                   "║4 - Mostrar las actividades              ║\n"+
-                                   "║5 - Registrar las inspecciones           ║\n"+
-                                   "║6 - Terminar                             ║\n"+                        
+                                   "║1 - Registrar inspector                  ║\n"+
+                                   "║2 - Registrar encargado                  ║\n"+
+                                   "║3 - Registrar actividad                  ║\n"+
+                                   "║4 - Registrar inspeccion                 ║\n"+
+                                   "║5 - Listado de inspecciones              ║\n"+
+                                   "║6 - Listado de actividades con problemas ║\n"+ 
+                                   "║7 - Consulta por seccion                 ║\n"+
+                                   "║8 - Baja de inspector                    ║\n"+
+                                   "║9 - Terminar                             ║\n"+                         
                                    "╚══════════════════════════╝");
                 
                 seleccion = in.nextInt();
                 	
                 switch(seleccion){
                 case 1: 
-			System.out.println("Actualizar los datos del Inspector");
-                        setEdadInspector(inspectorUno);
-                        System.out.println("");
-                        setNombreInspector(inspectorUno);
-                        setCedulaInspector(inspectorUno);
-                        System.out.println("");
+			System.out.println("Registro de inspector");
+                        
 		break;
                 case 2: 
-			System.out.println("Actualizar los datos de la actividad UNO");
-                        setSeccionActividad(actividadUno);
-                        setDescripcionActividad(actividadUno);
-                        setDuracionActividad(actividadUno);
-                        setTipoDeRiesgoPrincipal(actividadUno);
-                        setTipoDeRiesgoSecundario(actividadUno);
-                        System.out.println(actividadUno);
-                        System.out.println("");
+			System.out.println("Registro de encargado");
+                        
 		break;
                 case 3: 
-			System.out.println("Actualizar los datos de la actividad DOS");
-                        setSeccionActividad(actividadDos);
-                        setDescripcionActividad(actividadDos);
-                        setDuracionActividad(actividadDos);
-                        setTipoDeRiesgoPrincipal(actividadDos);
-                        setTipoDeRiesgoSecundario(actividadDos);
-                        System.out.println(actividadDos);                        
-                        System.out.println("");
+			System.out.println("Registro de actividad");
+                        
 		break;
                 case 4: 
-			System.out.println("Mostrar las actividades");                       
-                        System.out.println("");
-                        if(actividadUno.getTipoDeRiesgoPrincipal()>actividadDos.getTipoDeRiesgoPrincipal()){
-                            System.out.println("Actividad UNO");
-                            System.out.println(actividadUno);
-                            System.out.println("Actividad DOS");
-                            System.out.println(actividadDos);
-                        }
-                        else if (actividadUno.getTipoDeRiesgoPrincipal()<actividadDos.getTipoDeRiesgoPrincipal()){
-                            System.out.println("Actividad DOS");
-                            System.out.println(actividadDos);
-                            System.out.println("Actividad UNO");
-                            System.out.println(actividadUno);
-                        }
-                        else if (actividadUno.getTipoDeRiesgoSecundario()>actividadDos.getTipoDeRiesgoSecundario()){
-                            System.out.println("Actividad UNO");
-                            System.out.println(actividadUno);
-                            System.out.println("Actividad DOS");
-                            System.out.println(actividadDos);
-                        }
-                        else if (actividadUno.getTipoDeRiesgoSecundario()<actividadDos.getTipoDeRiesgoSecundario()){
-                            System.out.println("Actividad DOS");
-                            System.out.println(actividadDos);
-                            System.out.println("Actividad UNO");
-                            System.out.println(actividadUno);                        
-                        } 
-                        else {
-                            System.out.println("Actividad UNO");
-                            System.out.println(actividadUno);
-                            System.out.println("Actividad DOS");
-                            System.out.println(actividadDos);
-                        }      
+			System.out.println("Registro de inspecciones");                       
+                           
 		break;
                 case 5: 
-			System.out.println("Registrar las inspecciones");
-                        System.out.println("");
-                        System.out.println("Inspeccion UNO");
-                        System.out.println("");
-                        setHoraInspeccion(inspeccionUno);
-                        System.out.println("");
-                        setDiaInspeccion(inspeccionUno);
-                        System.out.println("");
-                        setMesInspeccion(inspeccionUno);
-                        setRiesgoEvaluado(inspeccionUno);
-                        setComentarios(inspeccionUno);
-                        setResultadoInspeccion(inspeccionUno);
-                        System.out.println("");
-                        System.out.println(inspeccionUno);
-                        System.out.println("");
-                        System.out.println("Inspeccion DOS");
-                        setHoraInspeccion(inspeccionDos);
-                        setDiaInspeccion(inspeccionDos);
-                        setMesInspeccion(inspeccionDos);
-                        setRiesgoEvaluado(inspeccionDos);
-                        setComentarios(inspeccionDos);
-                        setResultadoInspeccion(inspeccionDos);
-                        System.out.println(inspeccionDos);
-                        System.out.println("");
-                        if (inspeccionUno.getResultado()==true && inspeccionDos.getResultado()==true){
-                            System.out.println("El grado de rechazo es bajo");
-                        }
-                        else if (inspeccionUno.getResultado()==false && inspeccionDos.getResultado()==false){
-                            System.out.println("El grado de rechazo es alto");
-                        }
-                        else {
-                            System.out.println("El grado de rechazo es medio");
-                        }
-                        System.out.println("");
+			System.out.println("Listado de inspecciones");
+                        
                 break;
                 case 6:
+                        System.out.println("Listado de actividades con problemas");
+                break;
+                case 7:
+                        System.out.println("Consulta por seccion");
+                break;
+                case 8:
+                        System.out.println("Baja de inspector");
+                break;
+                case 9:
                         System.out.println("Hasta luego!");
                 break;
                 default:

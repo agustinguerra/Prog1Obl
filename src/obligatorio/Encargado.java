@@ -2,7 +2,7 @@
 package obligatorio;
 
 
-public class Encargado extends Persona {
+public class Encargado extends Persona implements Comparable<Encargado>{
 
     private String direccion;
     
@@ -11,6 +11,21 @@ public class Encargado extends Persona {
         return "Nombre: "+this.getNombre()+"\n"+"Edad: "+this.getEdad()+"\n"
                 +"Cedula: "+this.getCedula()+"\n"+"Direccion: "+this.getDireccion()+"\n";
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        Encargado unEncargado = (Encargado)o;
+        return this.getNombre().equals(unEncargado.getCedula());
+    }
+    
+    @Override
+    public int compareTo(Encargado o) 
+    {
+        int resultado = this.getCedula().compareTo(o.getCedula());
+        return resultado;
+    }
+    
     
     public void setNombre(String nomb){
         this.nombre=nomb;

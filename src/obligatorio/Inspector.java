@@ -2,13 +2,27 @@
 package obligatorio; 
 
 
-public class Inspector extends Persona {
+public class Inspector extends Persona implements Comparable<Inspector> {
 
     
     @Override
     public String toString(){
         return "Nombre: "+this.getNombre()+"\n"+"Edad: "+this.getEdad()+"\n"
                 +"Cedula: "+this.getCedula()+"\n";
+    }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        Inspector unInspector = (Inspector)o;
+        return this.getNombre().equals(unInspector.getCedula());
+    }
+    
+    @Override
+    public int compareTo(Inspector o) 
+    {
+        int resultado = this.getCedula().compareTo(o.getCedula());
+        return resultado;
     }
     
     public void setNombre(String nomb){

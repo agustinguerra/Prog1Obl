@@ -15,7 +15,7 @@ public class Inspector extends Persona implements Comparable<Inspector> {
     public boolean equals(Object o)
     {
         Inspector unInspector = (Inspector)o;
-        return this.getNombre().equals(unInspector.getCedula());
+        return this.getCedula().equals(unInspector.getCedula());
     }
     
     @Override

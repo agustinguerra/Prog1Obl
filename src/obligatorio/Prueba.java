@@ -390,7 +390,8 @@ public class Prueba {
         System.out.println("");     
         Scanner in = new Scanner(System.in);
         int seleccion = -1;
-        
+        ContainerInspector inspectores = new ContainerInspector();
+        ContainerEncargado encargados = new ContainerEncargado();
         while(seleccion!=9){
             
             try{
@@ -414,6 +415,8 @@ public class Prueba {
                 switch(seleccion){
                 case 1: 
 			System.out.println("Registro de inspector");
+                        System.out.println("");
+                        inspectores.agregarInspector(new Inspector());
                         
 		break;
                 case 2: 

@@ -2,7 +2,7 @@
 package obligatorio;  
 
 
-public class Actividad {
+public class Actividad implements Comparable<Actividad> {
     private int seccion;
     private String descripcion;
     private int duracion;
@@ -55,6 +55,20 @@ public class Actividad {
                 +"Duracion: "+this.getDuracion()+"\n"+"Tipo de riesgo principal: "
                 +this.RiesgoPrincipalAString()+"\n"+"Tipo de riesgo secundario: "
                 +this.RiesgoSecundarioAString()+"\n";
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        Actividad unaActividad = (Actividad)o;
+        return this.getSeccion()==unaActividad.getSeccion();
+    }
+    
+    @Override
+    public int compareTo(Actividad o) 
+    {
+        int resultado = this.getSeccion()-o.getSeccion();
+        return resultado;
     }
     
     public int getSeccion() {

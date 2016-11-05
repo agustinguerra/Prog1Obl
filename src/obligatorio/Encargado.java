@@ -16,7 +16,7 @@ public class Encargado extends Persona implements Comparable<Encargado>{
     public boolean equals(Object o)
     {
         Encargado unEncargado = (Encargado)o;
-        return this.getNombre().equals(unEncargado.getCedula());
+        return this.getCedula().equals(unEncargado.getCedula());
     }
     
     @Override

@@ -1,6 +1,7 @@
 
 package obligatorio; 
 
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -36,6 +37,36 @@ public class Prueba {
         }        
     }
 
+    public static void setEdadEncargado(Encargado enc){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        int edad=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese la edad del encargado.");
+                edad=in.nextInt();
+                if(edad>=0){
+                    bandera=true;
+                }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("");
+                System.out.println("El dato ingresado no corresponde el tipo correcto.");
+                System.out.println("");
+                in.nextLine();
+                bandera=false;
+            }
+            enc.setEdad(edad);
+        }        
+    }
+    
+    
     public static void setCedulaInspector(Inspector inspec){
         boolean bandera=false;
         Scanner in= new Scanner(System.in);
@@ -45,6 +76,27 @@ public class Prueba {
             String ced=in.nextLine();
             if (ced.matches("[0-9]+") && ((ced.length()==8)||(ced.length()==7))){
                 inspec.setCedula(ced);
+                bandera=true;
+            }
+            else
+            {
+                System.out.println("");
+                System.out.println("Los datos que usted ingreso no son correctos.");
+                System.out.println("");
+                System.out.println("Ingreselos de nuevo.");
+            }
+        }
+    }
+
+    public static void setCedulaEncargado(Encargado enc){
+        boolean bandera=false;
+        Scanner in= new Scanner(System.in);
+        System.out.println("");
+        System.out.println("Por favor ingrese la cedula del encargado.");
+        while(!bandera){
+            String ced=in.nextLine();
+            if (ced.matches("[0-9]+") && ((ced.length()==8)||(ced.length()==7))){
+                enc.setCedula(ced);
                 bandera=true;
             }
             else
@@ -83,7 +135,61 @@ public class Prueba {
             inspec.setNombre(nombre);
         }        
     }  
-  
+
+    public static void setNombreEncargado(Encargado enc){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        String nombre="";
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese el nombre del encargado.");
+                nombre=in.nextLine();
+                if (nombre.length()>0){
+                    bandera=true;
+                }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;                       
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("El dato ingresado no corresponde el tipo correcto, o no ha ingresado nombre.");
+                System.out.println("");
+                bandera=false;
+            }
+            enc.setNombre(nombre);
+        }        
+    }     
+
+    public static void setDireccionEncargado(Encargado enc){
+        Scanner in = new Scanner(System.in);
+        boolean bandera=false;
+        String direccion="";
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese la direccion del encargado.");
+                direccion=in.nextLine();
+                if (direccion.length()>0){
+                    bandera=true;
+                }
+                else {
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;                       
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("El dato ingresado no corresponde el tipo correcto, o no ha ingresado direccion.");
+                System.out.println("");
+                bandera=false;
+            }
+            enc.setNombre(direccion);
+        }        
+    } 
+    
     public static void setSeccionActividad(Actividad activ){
         Scanner in = new Scanner (System.in);
         
@@ -392,6 +498,8 @@ public class Prueba {
         int seleccion = -1;
         ContainerInspector inspectores = new ContainerInspector();
         ContainerEncargado encargados = new ContainerEncargado();
+        ContainerActividad actividades = new ContainerActividad();
+        ContainerInspeccion inspecciones = new ContainerInspeccion();
         while(seleccion!=9){
             
             try{
@@ -416,12 +524,21 @@ public class Prueba {
                 case 1: 
 			System.out.println("Registro de inspector");
                         System.out.println("");
-                        inspectores.agregarInspector(new Inspector());
-                        
+                        Inspector insp1 = new Inspector();
+                        setNombreInspector(insp1);
+                        setEdadInspector(insp1);
+                        setCedulaInspector(insp1);
+                        inspectores.agregarInspector(insp1);
 		break;
                 case 2: 
 			System.out.println("Registro de encargado");
-                        
+                        System.out.println("");
+                        Encargado enc1 = new Encargado();
+                        setNombreEncargado(enc1);
+                        setEdadEncargado(enc1); 
+                        setCedulaEncargado(enc1);
+                        setDireccionEncargado(enc1);
+                        encargados.agregarEncargado(enc1);
 		break;
                 case 3: 
 			System.out.println("Registro de actividad");
@@ -433,7 +550,8 @@ public class Prueba {
 		break;
                 case 5: 
 			System.out.println("Listado de inspecciones");
-                        
+                        System.out.println("");
+                        Collections.sort(inspecciones.getInspecciones());
                 break;
                 case 6:
                         System.out.println("Listado de actividades con problemas");

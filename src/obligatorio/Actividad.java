@@ -8,6 +8,7 @@ public class Actividad implements Comparable<Actividad> {
     private int duracion;
     private int tipoDeRiesgoPrincipal;
     private int tipoDeRiesgoSecundario;
+    private Encargado encargado;
 
     
     protected String RiesgoPrincipalAString(){
@@ -28,6 +29,14 @@ public class Actividad implements Comparable<Actividad> {
     }
     return tipoRiesgoPrincipal;    
     } 
+
+    public Encargado getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(Encargado encargado) {
+        this.encargado = encargado;
+    }
     
     
     protected String RiesgoSecundarioAString(){

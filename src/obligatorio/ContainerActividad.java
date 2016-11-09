@@ -24,8 +24,7 @@ public class ContainerActividad {
     public Actividad buscarActividad(Actividad unaActividadBuscada)
     {
         int posicion = this.getActividades().indexOf(unaActividadBuscada);
-        Actividad retorno = null;
-        
+        Actividad retorno = null;        
         if(posicion >= 0)
         {
             retorno = this.getActividades().get(posicion);

@@ -20,7 +20,7 @@ public class ContainerEncargado {
         return this.encargados;
     }
     
-    public Encargado buscarInspector(Inspector unEncargadoBuscado)
+    public Encargado buscarEncargado(Encargado unEncargadoBuscado)
     {
         int posicion = this.getEncargados().indexOf(unEncargadoBuscado);
         Encargado retorno = null;

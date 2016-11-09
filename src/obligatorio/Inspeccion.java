@@ -2,7 +2,7 @@
 package obligatorio; 
 
 
-public class Inspeccion {
+public class Inspeccion implements Comparable<Inspeccion> {
     private Inspector inspec;
     private Actividad activ;
     private int dia;
@@ -20,7 +20,28 @@ public class Inspeccion {
                 +"Comentarios: "+this.getComentarios()+"\n";
     }
     
-
+    @Override
+    public boolean equals(Object o)
+    {
+        Inspeccion unaInspeccion = (Inspeccion)o;
+        return this.getInspector().equals(unaInspeccion.getInspector());
+    }
+    
+    @Override
+    public int compareTo(Inspeccion o) 
+    {
+        int res;
+        if (this.getMes()!=o.getMes()){
+            res=this.getMes()-o.getMes();
+        }
+        else {
+            res=this.getDia()-o.getDia();
+        }
+        return res;
+    }
+    
+    
+    
     protected String RiesgoAString(){
         String tipoRiesgo = null;
         switch (this.getRiesgoEvaluado()) {

@@ -12,7 +12,7 @@ public class ContainerInspeccion {
         inspecciones= new ArrayList<>();
     }
     
-    public boolean agregarActividad(Inspeccion inspec){
+    public boolean agregarInspeccion(Inspeccion inspec){
         inspecciones.add(inspec);
         return true;
     }

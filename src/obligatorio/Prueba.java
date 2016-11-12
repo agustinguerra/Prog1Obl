@@ -374,7 +374,6 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese el dia de la inspeccion.");
-                System.out.println("");
                 dia=in.nextInt();
                 if(dia>0 && dia<31){
                     bandera=true;
@@ -403,7 +402,6 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese el mes de la inspeccion.");
-                System.out.println("");
                 mes=in.nextInt();
                 if(mes>0 && mes<13){
                     bandera=true;
@@ -424,7 +422,7 @@ public class Prueba {
         }        
     }    
 
-    public static void setComentarios(Inspeccion inspec){
+    public static void setComentariosInspeccion(Inspeccion inspec){
         Scanner in = new Scanner(System.in);
         System.out.println("Por favor ingrese los comentarios de la inspeccion.");
         String coment = in.nextLine();
@@ -526,6 +524,7 @@ public class Prueba {
                         System.out.println("");
                         Inspector insp1 = new Inspector();
                         setNombreInspector(insp1);
+                        System.out.println("");
                         setEdadInspector(insp1);
                         setCedulaInspector(insp1);
                         inspectores.agregarInspector(insp1);
@@ -535,23 +534,112 @@ public class Prueba {
                         System.out.println("");
                         Encargado enc1 = new Encargado();
                         setNombreEncargado(enc1);
-                        setEdadEncargado(enc1); 
+                        System.out.println("");
+                        setEdadEncargado(enc1);
+                        System.out.println("");
                         setCedulaEncargado(enc1);
+                        System.out.println("");
                         setDireccionEncargado(enc1);
                         encargados.agregarEncargado(enc1);
 		break;
                 case 3: 
 			System.out.println("Registro de actividad");
-                        
+                        System.out.println("");
+                        Actividad activ1 = new Actividad();
+                        setSeccionActividad(activ1);
+                        setDescripcionActividad(activ1);
+                        setDuracionActividad(activ1);
+                        setTipoDeRiesgoPrincipal(activ1);
+                        setTipoDeRiesgoSecundario(activ1);
+                        if ((encargados.getEncargados()).size()>0){
+                            //MOSTRAR LOS ENCARGADOS Y PEDIR ELEGIR UNO
+                        }
+                        else{
+                            System.out.println("No hay ningun encargado ingresado al sistema, por favor a continuacion cree uno.");
+                            System.out.println("");
+                            System.out.println("Registro de encargado");
+                            System.out.println("");
+                            Encargado enc2 = new Encargado();
+                            setNombreEncargado(enc2);
+                            setEdadEncargado(enc2); 
+                            setCedulaEncargado(enc2);
+                            setDireccionEncargado(enc2);
+                            encargados.agregarEncargado(enc2);
+                            activ1.setEncargado(enc2);
+                        }
+                        actividades.agregarActividad(activ1);
 		break;
                 case 4: 
-			System.out.println("Registro de inspecciones");                       
-                           
+			System.out.println("Registro de inspecciones");
+                        Inspeccion inspec1 = new Inspeccion();
+                        setDiaInspeccion(inspec1);
+                        setMesInspeccion(inspec1);
+                        setComentariosInspeccion(inspec1);
+                        setHoraInspeccion(inspec1);
+                        setResultadoInspeccion(inspec1);
+                        if ((inspectores.getInspectores()).size()>0){
+                            //MOSTRAR LOS INSPECTORES Y PEDIR ELEGIR UNO
+                        }
+                        else{
+                            System.out.println("No hay ningun inspector ingresado al sistema, por favor a continuacion cree uno.");
+                            System.out.println("");
+                            System.out.println("Registro de inspector");
+                            System.out.println("");
+                            Inspector insp3 = new Inspector();
+                            setNombreInspector(insp3);
+                            System.out.println("");
+                            setEdadInspector(insp3);
+                            System.out.println("");
+                            setCedulaInspector(insp3);
+                            System.out.println("");
+                            inspectores.agregarInspector(insp3);
+                            inspec1.setInspector(insp3);
+                        }
+                        if ((actividades.getActividades()).size()>0){
+                            //MOSTRAR LAS ACTIVIDADES Y PEDIR ELEGIR UNO
+                        }
+                        else{
+                            System.out.println("No hay ninguna actividad ingresado al sistema, por favor a continuacion cree una.");
+                            System.out.println("");
+                            System.out.println("Registro de actividad");
+                            System.out.println("");
+                            Actividad activ4 = new Actividad();
+                            setSeccionActividad(activ4);
+                            setDescripcionActividad(activ4);
+                            setDuracionActividad(activ4);
+                            setTipoDeRiesgoPrincipal(activ4);
+                            setTipoDeRiesgoSecundario(activ4);
+                            if ((encargados.getEncargados()).size()>0){
+                                //MOSTRAR LOS ENCARGADOS Y PEDIR ELEGIR UNO
+                            }
+                            else{
+                                System.out.println("No hay ningun encargado ingresado al sistema, por favor a continuacion cree uno.");
+                                System.out.println("");
+                                System.out.println("Registro de encargado");
+                                System.out.println("");
+                                Encargado enc2 = new Encargado();
+                                setNombreEncargado(enc2);
+                                setEdadEncargado(enc2); 
+                                setCedulaEncargado(enc2);
+                                setDireccionEncargado(enc2);
+                                encargados.agregarEncargado(enc2);
+                                activ4.setEncargado(enc2);
+                            }
+                            actividades.agregarActividad(activ4);
+                            inspec1.setActividad(activ4);
+                        }
+                        setRiesgoEvaluado(inspec1);
+                        inspecciones.agregarInspeccion(inspec1);
 		break;
                 case 5: 
 			System.out.println("Listado de inspecciones");
                         System.out.println("");
                         Collections.sort(inspecciones.getInspecciones());
+                        int listSize = inspecciones.getInspecciones().size();
+                        for (int i = 0; i<listSize; i++){
+                            System.out.println("Inspeccion numero "+i);
+                            System.out.println(inspecciones.getInspecciones().get(i));
+                        }
                 break;
                 case 6:
                         System.out.println("Listado de actividades con problemas");

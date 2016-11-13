@@ -49,5 +49,6 @@ public class Inspector extends Persona implements Comparable<Inspector> {
     public Inspector(){
         
     }
+
     
 }

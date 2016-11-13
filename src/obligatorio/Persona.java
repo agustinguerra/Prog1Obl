@@ -7,3 +7,4 @@ public abstract class Persona {
     protected int edad;
     protected String cedula;
 }
+

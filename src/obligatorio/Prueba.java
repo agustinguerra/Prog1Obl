@@ -221,6 +221,37 @@ public class Prueba {
         }                  
     }
 
+    public static int elegirMesListado(){
+        Scanner in = new Scanner (System.in);        
+        boolean bandera = false;
+        System.out.println("");
+        int mes=0;
+        while(!bandera){
+            try
+            {
+                System.out.println("Por favor ingrese el mes a listar.");
+                mes=in.nextInt();
+                if (0<mes && mes<13){
+                    bandera=true;
+                    System.out.println("");
+                }
+                else{
+                    InputMismatchException exception = new InputMismatchException();
+                    throw exception;                    
+                }
+            }
+            catch(InputMismatchException exception)
+            {
+                in.nextLine();
+                System.out.println("");
+                System.out.println("El dato ingresado no corresponde.");
+                System.out.println("");
+                bandera=false;
+            }            
+        } 
+        return mes;
+    }    
+    
     public static int setEncargadoActividad(Actividad activ, Integer numEnc){
         Scanner in = new Scanner (System.in);
         boolean bandera = false;
@@ -759,7 +790,13 @@ public class Prueba {
                                 setTipoDeRiesgoPrincipal(activ4);
                                 setTipoDeRiesgoSecundario(activ4);
                                 if ((encargados.getEncargados()).size()>0){
-                                    //MOSTRAR LOS ENCARGADOS Y PEDIR ELEGIR UNO
+                                    int listSizeEncIns=encargados.getEncargados().size();
+                                    for (int i=0;i<listSizeEncIns;i++){
+                                        System.out.println("Actividad numero "+i);
+                                        System.out.println(encargados.getEncargados().get(i));
+                                    }
+                                    int encElg=setEncargadoActividad(activ4,encargados.getEncargados().size());
+                                    activ4.setEncargado(encargados.getEncargados().get(encElg));
                                 }
                                 else{
                                     System.out.println("No hay ningun encargado ingresado al sistema, por favor a continuacion cree uno.");
@@ -793,6 +830,19 @@ public class Prueba {
                 break;
                 case 6:
                         System.out.println("Listado de actividades con problemas");
+                        System.out.println("");
+                        int mesElegido=elegirMesListado();
+                        int listSizeInsProb=inspecciones.getInspecciones().size();
+                        for (int i=0;i<listSizeInsProb;i++){
+                            if (inspecciones.getInspecciones().get(i).getMes()==mesElegido){
+                                if (inspecciones.getInspecciones().get(i).getResultado()==false){
+                                    System.out.println("Actividad");
+                                    System.out.println(inspecciones.getInspecciones().get(i).getActividad());
+                                }
+                            }
+                        }
+                        
+                        
                 break;
                 case 7:
                         System.out.println("Consulta por seccion");

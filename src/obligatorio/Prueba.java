@@ -37,6 +37,7 @@ public class Prueba {
         }        
     }
 
+ 
     public static void setEdadEncargado(Encargado enc){
         Scanner in = new Scanner(System.in);
         boolean bandera=false;
@@ -738,6 +739,7 @@ public class Prueba {
                                 System.out.println(inspectores.getInspectores().get(i));
                             }
                             int insElg=setInspectorInspeccion(inspec1,inspecciones.getInspecciones().size());
+                            inspectores.getInspectores().get(insElg).setOcupado(true);
                             inspec1.setInspector(inspectores.getInspectores().get(insElg));
                         }
                         else{
@@ -760,6 +762,7 @@ public class Prueba {
                                 }
                             }
                             if (existeInsp==false){
+                                insp3.setOcupado(true);
                                 inspectores.agregarInspector(insp3);
                                 inspec1.setInspector(insp3);
                                 inspectorFueAgregado=true;
@@ -836,19 +839,44 @@ public class Prueba {
                         for (int i=0;i<listSizeInsProb;i++){
                             if (inspecciones.getInspecciones().get(i).getMes()==mesElegido){
                                 if (inspecciones.getInspecciones().get(i).getResultado()==false){
-                                    System.out.println("Actividad");
-                                    System.out.println(inspecciones.getInspecciones().get(i).getActividad());
+                                    if (inspecciones.getInspecciones().get(i).getActividad().getImpreso()==false){
+                                        inspecciones.getInspecciones().get(i).getActividad().setImpreso(true);
+                                        System.out.println("Actividad");
+                                        System.out.println(inspecciones.getInspecciones().get(i).getActividad());
+                                    }
                                 }
                             }
                         }
-                        
-                        
+                        for (int i=0;i<listSizeInsProb;i++){
+                            inspecciones.getInspecciones().get(i).getActividad().setImpreso(false);
+                        }                       
                 break;
                 case 7:
                         System.out.println("Consulta por seccion");
                 break;
                 case 8:
                         System.out.println("Baja de inspector");
+                        System.out.println("");
+                        System.out.println("Por favor ingrese la cedula del inspector a dar de baja");
+                        in.nextLine();
+                        String cedulaADarDeBaja = in.nextLine();
+                        Inspector aux = new Inspector();
+                        aux.setCedula(cedulaADarDeBaja);
+                        if (inspectores.buscarInspector(aux)!=null){
+                            if (inspectores.buscarInspector(aux).getOcupado()==false){
+                                inspectores.borrarInspector(aux);
+                                System.out.println("");
+                                System.out.println("Exito");
+                            }
+                            else{
+                                System.out.println("");
+                                System.out.println("El inspector esta asociado a una inspeccion");                              
+                            }
+                        }
+                        else {
+                            System.out.println("");
+                            System.out.println("El inspector no existe");
+                        }
                 break;
                 case 9:
                         System.out.println("Hasta luego!");

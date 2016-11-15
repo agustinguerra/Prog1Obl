@@ -2,6 +2,7 @@
 package obligatorio;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class ContainerInspector {
@@ -34,4 +35,13 @@ public class ContainerInspector {
         return retorno;
     }    
     
+    public void borrarInspector (Inspector aBorrar){
+        Iterator<Inspector> it = inspectores.iterator();
+        while (it.hasNext()){
+            Inspector aux = it.next();
+            if (aux.equals(aBorrar)){
+                it.remove();
+            }
+        }        
+    }
 }

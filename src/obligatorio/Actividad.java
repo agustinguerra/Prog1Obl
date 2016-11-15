@@ -9,6 +9,7 @@ public class Actividad implements Comparable<Actividad> {
     private int tipoDeRiesgoPrincipal;
     private int tipoDeRiesgoSecundario;
     private Encargado encargado;
+    private boolean impreso;
 
     
     protected String RiesgoPrincipalAString(){
@@ -122,8 +123,17 @@ public class Actividad implements Comparable<Actividad> {
     }
 
     public Actividad() {
+        this.impreso=false;
         this.tipoDeRiesgoPrincipal=-1;
         this.tipoDeRiesgoSecundario=-1;
+    }
+
+    public boolean getImpreso() {
+        return impreso;
+    }
+
+    public void setImpreso(boolean impreso) {
+        this.impreso = impreso;
     }
     
 }

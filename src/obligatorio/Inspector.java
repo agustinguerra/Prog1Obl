@@ -4,6 +4,15 @@ package obligatorio;
 
 public class Inspector extends Persona implements Comparable<Inspector> {
 
+    private boolean ocupado;
+
+    public boolean getOcupado() {
+        return ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
+    }
     
     @Override
     public String toString(){
@@ -47,7 +56,7 @@ public class Inspector extends Persona implements Comparable<Inspector> {
     }
 
     public Inspector(){
-        
+        this.ocupado=false;
     }
 
     

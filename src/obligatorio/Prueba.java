@@ -853,6 +853,44 @@ public class Prueba {
                 break;
                 case 7:
                         System.out.println("Consulta por seccion");
+                        System.out.println("");
+                        int contadorMaximo=0;
+                        for (int i=1;i<11;i++){
+                            int contadorAprobadas=0;
+                            int contadorNoAprobadas=0;
+                            int contadorSeccion=0;
+                            int listSizeInspSec=inspecciones.getInspecciones().size();
+                            for (int j=0;j<listSizeInspSec;j++){
+                                if (inspecciones.getInspecciones().get(j).getActividad().getSeccion()==i){
+                                    if (inspecciones.getInspecciones().get(j).getResultado()==true){
+                                        contadorAprobadas=contadorAprobadas+1;
+                                    }
+                                    else{
+                                        contadorNoAprobadas=contadorNoAprobadas+1;
+                                    }
+                                    contadorSeccion=contadorSeccion+1;
+                                }
+                            }
+                            if (contadorSeccion>contadorMaximo){
+                                contadorMaximo=contadorSeccion;
+                            }
+                            System.out.println("La seccion "+i+" tuvo");
+                            System.out.println("Inspecciones aprobadas: "+contadorAprobadas);
+                            System.out.println("Inspecciones no aprobadas: "+contadorNoAprobadas);
+                            System.out.println("");
+                            System.out.println("Las secciones con mayor cantidad de inspecciones fueron/son las siguientes");
+                            for (int x=1;x<11;x++){
+                                contadorSeccion=0;
+                                for (int t=0;t<listSizeInspSec;t++){
+                                    if(inspecciones.getInspecciones().get(t).getActividad().getSeccion()==x){
+                                        contadorSeccion=contadorSeccion+1;
+                                    }
+                                }
+                                if (contadorSeccion==contadorMaximo){
+                                    System.out.println("Seccion "+x);
+                                }
+                            }
+                        }
                 break;
                 case 8:
                         System.out.println("Baja de inspector");

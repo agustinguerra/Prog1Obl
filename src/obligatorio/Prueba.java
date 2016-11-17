@@ -295,7 +295,7 @@ public class Prueba {
         while(!bandera){
             try
             {
-                System.out.println("Por favor ingrese el numero correspondiente al encargado.");
+                System.out.println("Por favor ingrese el numero correspondiente al inspector.");
                 insp=in.nextInt();
                 if (0<=insp && insp<numIns){
                     bandera=true;
@@ -304,7 +304,7 @@ public class Prueba {
                 }
                 else{
                     InputMismatchException exception = new InputMismatchException();
-                    throw exception;                    
+                    throw exception;
                 }
             }
             catch(InputMismatchException exception)
@@ -476,7 +476,6 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese las horas de la inspeccion.");
-                System.out.println("");
                 hora=in.nextInt();
                 if(hora>=0){
                     bandera=true;
@@ -568,7 +567,6 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese 1 si la inspeccion fue aprobada o 0 si fue rechazada.");
-                System.out.println("");
                 resultado=in.nextInt();
                 if(resultado>-1 && resultado<2){
                     bandera=true;
@@ -724,13 +722,19 @@ public class Prueba {
 		break;
                 case 4: 
 			System.out.println("Registro de inspecciones");
+                        System.out.println("");
                         Inspeccion inspec1 = new Inspeccion();
                         boolean inspectorFueAgregado=false;
                         setDiaInspeccion(inspec1);
+                        System.out.println("");
                         setMesInspeccion(inspec1);
+                        System.out.println("");
                         setComentariosInspeccion(inspec1);
+                        System.out.println("");
                         setHoraInspeccion(inspec1);
+                        System.out.println("");
                         setResultadoInspeccion(inspec1);
+                        System.out.println("");
                         if ((inspectores.getInspectores()).size()>0){
                             inspectorFueAgregado=true;
                             int listSizeIn = inspectores.getInspectores().size();
@@ -738,7 +742,8 @@ public class Prueba {
                                 System.out.println("Inspector numero "+i);
                                 System.out.println(inspectores.getInspectores().get(i));
                             }
-                            int insElg=setInspectorInspeccion(inspec1,inspecciones.getInspecciones().size());
+                            int cantInsp = inspectores.getInspectores().size();
+                            int insElg=setInspectorInspeccion(inspec1,cantInsp);
                             inspectores.getInspectores().get(insElg).setOcupado(true);
                             inspec1.setInspector(inspectores.getInspectores().get(insElg));
                         }

@@ -187,7 +187,7 @@ public class Prueba {
                 System.out.println("");
                 bandera=false;
             }
-            enc.setNombre(direccion);
+            enc.setDireccion(direccion);
         }        
     } 
     
@@ -596,7 +596,6 @@ public class Prueba {
             try
             {
                 System.out.println("Por favor ingrese el riesgo a evaluar.");
-                System.out.println("");
                 riesgo=in.nextInt();
                 if(riesgo==(inspec.getActividad()).getTipoDeRiesgoPrincipal()  ||  (inspec.getActividad()).getTipoDeRiesgoSecundario()==riesgo){
                     bandera=true;
@@ -609,6 +608,7 @@ public class Prueba {
             catch(InputMismatchException exception)
             {
                 in.nextLine();
+                System.out.println("");
                 System.out.println("El dato ingresado no corresponde el tipo correcto o no concide con el riesgo principal/secundario de la actividad.");
                 System.out.println("");
                 bandera=false;
@@ -677,7 +677,6 @@ public class Prueba {
                         setNombreEncargado(enc1);
                         System.out.println("");
                         setEdadEncargado(enc1);
-                        System.out.println("");
                         setCedulaEncargado(enc1);
                         System.out.println("");
                         setDireccionEncargado(enc1);
@@ -685,7 +684,6 @@ public class Prueba {
 		break;
                 case 3: 
 			System.out.println("Registro de actividad");
-                        System.out.println("");
                         Actividad activ1 = new Actividad();
                         setSeccionActividad(activ1);
                         setDescripcionActividad(activ1);
@@ -756,7 +754,6 @@ public class Prueba {
                             setNombreInspector(insp3);
                             System.out.println("");
                             setEdadInspector(insp3);
-                            System.out.println("");
                             setCedulaInspector(insp3);
                             System.out.println("");                            
                             int listSizeInsInsp = inspectores.getInspectores().size();
@@ -790,7 +787,6 @@ public class Prueba {
                                 System.out.println("No hay ninguna actividad ingresado al sistema, por favor a continuacion cree una.");
                                 System.out.println("");
                                 System.out.println("Registro de actividad");
-                                System.out.println("");
                                 Actividad activ4 = new Actividad();
                                 setSeccionActividad(activ4);
                                 setDescripcionActividad(activ4);
@@ -813,9 +809,12 @@ public class Prueba {
                                     System.out.println("");
                                     Encargado enc2 = new Encargado();
                                     setNombreEncargado(enc2);
+                                    System.out.println("");
                                     setEdadEncargado(enc2); 
                                     setCedulaEncargado(enc2);
+                                    System.out.println("");
                                     setDireccionEncargado(enc2);
+                                    System.out.println("");
                                     encargados.agregarEncargado(enc2);
                                     activ4.setEncargado(enc2);
                                 }
@@ -882,20 +881,23 @@ public class Prueba {
                             System.out.println("La seccion "+i+" tuvo");
                             System.out.println("Inspecciones aprobadas: "+contadorAprobadas);
                             System.out.println("Inspecciones no aprobadas: "+contadorNoAprobadas);
-                            System.out.println("");
-                            System.out.println("Las secciones con mayor cantidad de inspecciones fueron/son las siguientes");
-                            for (int x=1;x<11;x++){
-                                contadorSeccion=0;
-                                for (int t=0;t<listSizeInspSec;t++){
-                                    if(inspecciones.getInspecciones().get(t).getActividad().getSeccion()==x){
-                                        contadorSeccion=contadorSeccion+1;
-                                    }
-                                }
-                                if (contadorSeccion==contadorMaximo){
-                                    System.out.println("Seccion "+x);
+                            System.out.println("");  
+                        }
+                        System.out.println("Las secciones con mayor cantidad de inspecciones fueron/son las siguientes");
+                        for (int x=1;x<11;x++){
+                            int contadorSeccion=0;
+                            int listSizeInspSec=inspecciones.getInspecciones().size();
+                            for (int t=0;t<listSizeInspSec;t++){
+                                if(inspecciones.getInspecciones().get(t).getActividad().getSeccion()==x){
+                                    contadorSeccion=contadorSeccion+1;
                                 }
                             }
+                            if (contadorSeccion==contadorMaximo && contadorMaximo>0){
+                                System.out.println("Seccion "+x);  
+                                System.out.println("");
+                            }
                         }
+                        System.out.println("Con "+contadorMaximo+" inspecciones");
                 break;
                 case 8:
                         System.out.println("Baja de inspector");

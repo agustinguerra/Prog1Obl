@@ -64,7 +64,7 @@ public class Actividad implements Comparable<Actividad> {
         return "Seccion: "+this.getSeccion()+"\n"+"Descripcion: "+this.getDescripcion()+"\n"
                 +"Duracion: "+this.getDuracion()+"\n"+"Tipo de riesgo principal: "
                 +this.RiesgoPrincipalAString()+"\n"+"Tipo de riesgo secundario: "
-                +this.RiesgoSecundarioAString()+"\n";
+                +this.RiesgoSecundarioAString()+"\n"+"Encargado"+"\n"+this.encargado;
     }
 
     @Override
